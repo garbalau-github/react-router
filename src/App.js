@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { Navbar } from './components/Navbar';
 
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -12,30 +14,10 @@ import { ProductList } from './pages/ProductList';
 import './App.css';
 
 const App = () => {
-  const profiles = [
-    {
-      username: 'Jessica',
-    },
-    {
-      username: 'Michael',
-    },
-  ];
-
   return (
     <div className='App'>
       <Router>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/products'>Products</Link>
-          {profiles.map((profile, idx) => {
-            return (
-              <Link key={idx} to={`/profile/${profile.username}`}>
-                <span>{profile.username}'s Profile</span>
-              </Link>
-            );
-          })}
-        </nav>
+        <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
@@ -46,7 +28,7 @@ const App = () => {
           </Route>
           <Route path='*' element={<Error />} />
         </Routes>
-        <footer>Footer</footer>
+        <footer className='Footer'>React Router v6</footer>
       </Router>
     </div>
   );

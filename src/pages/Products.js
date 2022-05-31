@@ -5,7 +5,7 @@ export const Products = () => {
   return (
     <div>
       <h1>Products</h1>
-      <Link to='/products/list'>List</Link>
+      <Link to='/products/list'>Open Products List</Link>
       <Outlet />
     </div>
   );

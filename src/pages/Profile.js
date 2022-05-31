@@ -2,11 +2,18 @@ import React from 'react';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
+const buttonStyle = {
+  margin: 0,
+  border: 'none',
+  color: '#fff',
+  fontSize: '18px',
+  backgroundColor: 'rebeccapurple',
+  padding: '5px 15px',
+};
+
 export const Profile = () => {
   let navigate = useNavigate();
   let { username } = useParams();
-
-  console.log(username);
 
   const handleClick = () => {
     navigate('/about');
@@ -16,13 +23,17 @@ export const Profile = () => {
     <div>
       {username ? (
         <>
-          <h1>Profile for {username}</h1>
-          <button onClick={handleClick}>Go About</button>
+          <h1>Username: {username}</h1>
+          <button style={buttonStyle} onClick={handleClick}>
+            Go About
+          </button>
         </>
       ) : (
         <>
-          <h1>No user selected, showing default Profile</h1>
-          <button onClick={handleClick}>Go About</button>
+          <h1>Default Profile. No user selected.</h1>
+          <button style={buttonStyle} onClick={handleClick}>
+            Go About
+          </button>
         </>
       )}
     </div>
